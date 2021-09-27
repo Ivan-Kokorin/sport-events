@@ -12,7 +12,7 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class RabbitConfiguration {
     public static final String QUEUE_MESSAGES = "parse-messages-queue";
-    public static final String HOSTNAME = "localhost";
+    public static final String HOSTNAME = "rabbitmq";
 
     @Bean
     public ConnectionFactory connectionFactory() {
