@@ -14,4 +14,9 @@ public class GettingController {
     public String api() {
         return "matches";
     }
+
+    @GetMapping("/login")
+    public String login() {
+        return "login";
+    }
 }
