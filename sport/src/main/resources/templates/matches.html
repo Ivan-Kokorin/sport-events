@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+    <meta charset="UTF-8">
+    <title>Example Front</title>
+</head>
+<body>
+    <form th:action="@{/logout}" method="post">
+        <input type="submit" value="Sign Out"/>
+    </form>
+    <h1>Заголовок главной страницы</h1>
+    <ol id="back"></ol>
+</body>
+</html>
+
+<script type="text/javascript">
+    let jsonOb = async function getMySuperData() {
+        let response = await fetch('/footballs');
+        let myData = await response.json();
+        let list = document.querySelector('#back');
+        let key;
+        for (key in myData) {
+            list.innerHTML += `
+            <li><strong>Sport:</strong> ${myData[key].sportName} <strong>League:</strong> ${myData[key].league} <strong>Teams:</strong> ${myData[key].teams} </li>
+            `
+        }
+        return myData;
+    }
+    jsonOb();
+</script>
