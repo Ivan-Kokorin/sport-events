@@ -1,4 +1,4 @@
-package com.application.sport;
+package com.application.sport.configuration;
 
 import org.springframework.amqp.core.AmqpAdmin;
 import org.springframework.amqp.core.Queue;

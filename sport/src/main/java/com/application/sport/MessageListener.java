@@ -1,5 +1,6 @@
 package com.application.sport;
 
+import com.application.sport.configuration.RabbitConfiguration;
 import com.application.sport.model.SportEvent;
 import com.application.sport.model.WrapSportObject;
 import com.application.sport.service.SportEventService;
