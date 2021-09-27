@@ -16,7 +16,7 @@
 
 <script type="text/javascript">
     let jsonOb = async function getMySuperData() {
-        let response = await fetch('/footballs');
+        let response = await fetch('/sports');
         let myData = await response.json();
         let list = document.querySelector('#back');
         let key;
