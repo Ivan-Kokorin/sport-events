@@ -23,9 +23,10 @@ public class MessageSender {
         this.rabbitTemplate = rabbitTemplate;
     }
 
+    //получение сырой информации и отправка обработанной информации в очередь RabbitMQ по расписанию
     @Scheduled(fixedDelay = 5000L)
     public void sendMessage() {
-        final Message message = new Message((handlerEventDataObject.run()).getBytes(StandardCharsets.UTF_8) );
+        final Message message = new Message((handlerEventDataObject.run()).getBytes(StandardCharsets.UTF_8));
         logger.info("Sending message...");
         rabbitTemplate.convertAndSend(RabbitConfiguration.QUEUE_MESSAGES, message);
     }

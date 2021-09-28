@@ -13,6 +13,7 @@ public class HandlerEventDataObject {
     @Autowired
     private Parser parser;
 
+    //обработка полученной от парсера информации, создание одного списка сущностей EntitySportEvent из списков сущностей Event и Announcement
     public String run() {
         List<EntitySportEvent> sportEvents = new ArrayList<>();
         InfoEvent infoEvent = parser.parse();
@@ -44,12 +45,14 @@ public class HandlerEventDataObject {
         return gson.toJson(wrapEntitySportEvent);
     }
 
+    //создание новой сущности, без лишней информации, с необходимыми нам полями
     private EntitySportEvent buildEntitySportEvent(long id, String sport, String segmentName, String team1, String team2) {
         String league = trimForLeagueName(sport, segmentName);
         String teams = concatenationTeamName(team1, team2);
         return new EntitySportEvent(id, sport, league, teams);
     }
 
+    //из названия лиги убираем название спорта
     private String trimForLeagueName(String sport, String segmentName) {
         String league = segmentName.substring(sport.length() + 1);
         return league.trim();
