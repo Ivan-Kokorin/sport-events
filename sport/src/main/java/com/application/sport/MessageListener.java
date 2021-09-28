@@ -20,6 +20,7 @@ public class MessageListener {
     @Autowired
     SportEventService sportEventService;
 
+    //получение данных из очереди RabbitMQ, парсинг и сохранение новых событий в БД
     @RabbitListener(queues = RabbitConfiguration.QUEUE_MESSAGES)
     public void receiveMessage(final Message message) {
         logger.info("Received new message from parse-messages-queue");

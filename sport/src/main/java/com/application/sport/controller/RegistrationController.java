@@ -21,6 +21,7 @@ public class RegistrationController {
         return "registration";
     }
 
+    //При регистрации идёт проверка уникальности имени пользователя
     @PostMapping("/registration")
     public String addUser(User user, Model model) {
         User userFromDb = userRepository.findByUsername(user.getUsername());

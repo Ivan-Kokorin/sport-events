@@ -15,6 +15,7 @@ public class RestApiController {
     @Autowired
     SportEventService sportEventService;
 
+    //отдаёт список спортивных событий, полученных из БД и отсортированных по названию вида спорта
     @GetMapping(value = "/sports")
     public List<SportEvent> getAllSportEvent() {
         List<SportEvent> allSportEvent = sportEventService.getAllSportEvent();
